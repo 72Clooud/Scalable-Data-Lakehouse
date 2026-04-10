@@ -1,0 +1,10 @@
+transform:
+  outputs:
+    dev:
+      type: duckdb
+      path: '../ecommerce.duckdb'
+      extensions:
+        - httpfs
+        - parquet
+      threads: 4
+  target: dev
