@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: stg_ecom_customer
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_ecom_geolocation
+    columns:
+      - name: geolocation_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_ecom_order_items
+    columns:
+      - name: order_item_sk
+        tests:
+          - unique
+          - not_null
+  - name: stg_ecom_order_payments
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_ecom_order_reviews
+    columns:
+      - name: order_review_sk
+        tests:
+          - unique
+          - not_null
+  - name: stg_ecom_orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_ecom_product_category_name_translation
+    columns:
+      - name: category_name
+        tests:
+          - unique
+          - not_null
+  - name: stg_ecom_products
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_ecom_seller
+    columns:
+      - name: seller_id
+        tests:
+          - unique
+          - not_null

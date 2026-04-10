@@ -3,7 +3,7 @@
 with
     base as (
         select
-            order_id as id
+            order_id
             , customer_id
             , order_status as status 
             , cast(order_purchase_timestamp as timestamp) as purchase_timestamp

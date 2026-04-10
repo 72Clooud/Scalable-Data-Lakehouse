@@ -8,6 +8,11 @@ with
             , geolocation_lng as lng
             , geolocation_city as city
             , geolocation_state as state
+            , {{ dbt_utils.generate_surrogate_key([
+                'geolocation_zip_code_prefix', 
+                'geolocation_lat', 
+                'geolocation_lng'
+            ]) }} as geolocation_id
         from
             {{ source_model }}
     )

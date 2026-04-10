@@ -3,7 +3,7 @@
 with
     base as (
         select
-            product_id as id
+            product_id
             , product_category_name
             , product_name_lenght
             , product_description_lenght as description_lenght
