@@ -7,7 +7,7 @@ with
         select
             zip_code_prefix
             , avg(lat) as lat
-            , avg(Ing) as lon
+            , avg(lng) as lng
             , city
             , state
         from
