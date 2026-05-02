@@ -33,7 +33,7 @@ with
             orders
         left join customers
             on orders.customer_id = customers.id 
-        left join geo
+        inner join geo
             using(zip_code_prefix)
         left join items
             using(order_id)   

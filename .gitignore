@@ -17,3 +17,6 @@ ecommerce.duckdb
 
 #logs
 logs/
+
+# streamlit secrets
+.streamlit
