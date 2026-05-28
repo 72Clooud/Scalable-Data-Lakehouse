@@ -21,7 +21,7 @@ with
         inner join orders
             using(order_id)
         left join products 
-            on items.product_id = products.id
+            on items.product_id = products.product_id
     )
 
     , aggregated as (

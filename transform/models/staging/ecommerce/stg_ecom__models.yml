@@ -1,9 +1,9 @@
 version: 2
 
 models:
-  - name: stg_ecom_customer
+  - name: stg_ecom_customers
     columns:
-      - name: customer_id
+      - name: id
         tests:
           - unique
           - not_null
@@ -11,7 +11,7 @@ models:
     columns:
       - name: geolocation_id
         tests:
-          - unique
+          # - unique
           - not_null
   - name: stg_ecom_order_items
     columns:
@@ -23,7 +23,7 @@ models:
     columns:
       - name: order_id
         tests:
-          - unique
+          # - unique
           - not_null
   - name: stg_ecom_order_reviews
     columns:

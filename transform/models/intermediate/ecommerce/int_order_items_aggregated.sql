@@ -6,7 +6,7 @@ with
     , aggregated as (
         select
             order_id
-            , count(item_id) as items_count
+            , count(order_item_id) as items_count
             , sum(price) as total_products_amount
             , sum(freight_value) as total_freight_amount
             , sum(price) + sum(freight_value) as total_order_amount
