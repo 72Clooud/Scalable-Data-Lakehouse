@@ -25,10 +25,10 @@ Przepływ danych został ułożony w **Architekturze Medalionowej** (warstwy: Br
 ```mermaid
 graph LR
     %% Konfiguracja stylów
-    classDef source fill:#f9f2f4,stroke:#333,stroke-width:2px;
-    classDef process fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
-    classDef storage fill:#fff3e0,stroke:#f57c00,stroke-width:2px;
-    classDef bi fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;
+    classDef source fill:#f9f2f4,stroke:#333,stroke-width:2px,color:#000;
+    classDef process fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
+    classDef storage fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000;
+    classDef bi fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#000;
 
     %% 1. Zrodla
     subgraph sources ["Data Sources"]
