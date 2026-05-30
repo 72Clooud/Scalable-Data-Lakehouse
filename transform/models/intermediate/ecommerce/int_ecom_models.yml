@@ -1,4 +1,7 @@
 version: 2
 
 models:
+  - name: int_geolocation_cleaned
+  - name: int_order_items_aggregated
+  - name: int_order_payments_aggregated
   - name: int_products_enriched

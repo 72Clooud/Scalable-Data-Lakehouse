@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: mart_customer_geography
+  - name: mart_product_categories
+  - name: mart_reviews_and_satisfaction
+  - name: mart_sales_performance
