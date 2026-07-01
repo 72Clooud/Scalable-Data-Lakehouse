@@ -3,8 +3,9 @@ import polars as pl
 from utils import (
     get_sales_performance, 
     get_customer_geography, 
-    get_product_categories, 
     get_reviews_satisfaction,
+    get_top_categories_by_revenue,
+    get_late_delivery_impact,
     load_css
 )
 
@@ -16,7 +17,6 @@ st.markdown("Condensed view of key store metrics (KPIs).")
 
 df_sales = get_sales_performance()
 df_geo = get_customer_geography()
-df_products = get_product_categories()
 df_reviews = get_reviews_satisfaction()
 
 total_revenue = df_sales['total_revenue'].sum()
@@ -42,17 +42,7 @@ with col_trend:
 with col_prod:
     st.subheader(":package: Top Categories by Revenue")
     
-    top_categories = (
-        df_products.group_by("product_category")
-        .agg(pl.col("total_revenue").sum())
-        .sort("total_revenue", descending=True)
-        .head(8)
-        .rename({"product_category": "Category", "total_revenue": "Revenue (BRL)"})
-    )
-
-    top_categories = top_categories.with_columns(
-        pl.col("Category").str.replace_all("_", " ").str.to_titlecase()
-    )
+    top_categories = get_top_categories_by_revenue()
 
     st.bar_chart(
         data=top_categories, 
@@ -65,25 +55,16 @@ col_map, col_impact = st.columns([5, 5])
 
 with col_map:
     st.subheader(":earth_americas: Customer Distribution")
-    st.map(data=df_geo, latitude='lat', longitude='lng')
+    # Sample data to avoid browser freezing
+    sample_size = min(5000, len(df_geo))
+    df_geo_sampled = df_geo.sample(n=sample_size, seed=42)
+    st.map(data=df_geo_sampled, latitude='lat', longitude='lng')
 
 with col_impact:
     st.subheader(":star: The Cost of Late Deliveries")
     st.markdown("How do delivery delays impact customer satisfaction?")
     
-    score_by_lateness = (
-        df_reviews.with_columns(
-            pl.when(pl.col("is_late_delivery"))
-            .then(pl.lit("Late Delivery"))
-            .otherwise(pl.lit("On Time"))
-            .alias("delivery_status")
-        )
-        .group_by("delivery_status")
-        .agg(pl.col("review_score").mean())
-    )
-    
-    on_time_score = score_by_lateness.filter(pl.col("delivery_status") == "On Time")["review_score"][0]
-    late_score = score_by_lateness.filter(pl.col("delivery_status") == "Late Delivery")["review_score"][0]
+    on_time_score, late_score = get_late_delivery_impact()
     
     score_drop = late_score - on_time_score
     
