@@ -2,56 +2,74 @@ version: 2
 
 models:
   - name: stg_ecom_customers
+    description: Staging model for customers dataset. Contains customer and location info.
     columns:
       - name: id
+        description: Unique identifier of a customer.
         tests:
           - unique
           - not_null
   - name: stg_ecom_geolocation
+    description: Staging model for geolocation dataset containing Brazilian zip codes.
     columns:
       - name: geolocation_id
+        description: Surrogate key for geolocation records.
         tests:
           # - unique
           - not_null
   - name: stg_ecom_order_items
+    description: Staging model for items purchased within each order.
     columns:
       - name: order_item_sk
+        description: Surrogate key for order items.
         tests:
           - unique
           - not_null
   - name: stg_ecom_order_payments
+    description: Staging model for orders payment options.
     columns:
       - name: order_id
+        description: Unique identifier of an order.
         tests:
           # - unique
           - not_null
   - name: stg_ecom_order_reviews
+    description: Staging model for reviews made by the customers.
     columns:
       - name: order_review_sk
+        description: Surrogate key for order reviews.
         tests:
           - unique
           - not_null
   - name: stg_ecom_orders
+    description: Staging model for the core orders dataset.
     columns:
       - name: order_id
+        description: Unique identifier of the order.
         tests:
           - unique
           - not_null
   - name: stg_ecom_product_category_name_translation
+    description: Staging model for translating product category names to english.
     columns:
       - name: category_name
+        description: Category name in Portuguese.
         tests:
           - unique
           - not_null
   - name: stg_ecom_products
+    description: Staging model for products sold by Olist.
     columns:
       - name: product_id
+        description: Unique product identifier.
         tests:
           - unique
           - not_null
   - name: stg_ecom_seller
+    description: Staging model for sellers that fulfilled orders made at Olist.
     columns:
       - name: seller_id
+        description: Seller unique identifier.
         tests:
           - unique
           - not_null

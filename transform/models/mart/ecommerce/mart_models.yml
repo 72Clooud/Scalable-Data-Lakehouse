@@ -2,6 +2,10 @@ version: 2
 
 models:
   - name: mart_customer_geography
+    description: Mart model combining customer information with their geographical location for spatial analysis.
   - name: mart_product_categories
+    description: Mart model analyzing product metrics (sales, volumes) by English category names.
   - name: mart_reviews_and_satisfaction
+    description: Mart model combining order reviews with order details to analyze customer satisfaction.
   - name: mart_sales_performance
+    description: Core mart model for sales performance, combining orders with payments, customers, and aggregated item information.

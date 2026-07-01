@@ -5,11 +5,20 @@ sources:
     schema: main
     tables:
       - name: raw_olist_customers_dataset
+        description: Information about the customer and its location.
       - name: raw_olist_geolocation_dataset
+        description: Brazilian zip codes and its lat/lng coordinates.
       - name: raw_olist_order_items_dataset
+        description: Data about the items purchased within each order.
       - name: raw_olist_order_payments_dataset
+        description: Data about the orders payment options.
       - name: raw_olist_order_reviews_dataset
+        description: Data about the reviews made by the customers.
       - name: raw_olist_orders_dataset
+        description: Core dataset with order information.
       - name: raw_olist_products_dataset
+        description: Data about the products sold by Olist.
       - name: raw_olist_sellers_dataset
+        description: Data about the sellers that fulfilled orders made at Olist.
       - name: raw_product_category_name_translation
+        description: Translates the product_category_name to english.

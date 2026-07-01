@@ -2,6 +2,10 @@ version: 2
 
 models:
   - name: int_geolocation_cleaned
+    description: Intermediate model cleaning up geolocation data.
   - name: int_order_items_aggregated
+    description: Intermediate model aggregating items per order to calculate total item counts and freight values.
   - name: int_order_payments_aggregated
+    description: Intermediate model aggregating order payments to calculate total transaction value per order.
   - name: int_products_enriched
+    description: Intermediate model enriching products with English category names.
